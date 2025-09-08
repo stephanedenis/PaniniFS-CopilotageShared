@@ -1,1 +1,37 @@
 base: true
+
+# Configuration partagée pour tous les modules PaniniFS
+project:
+  ecosystem: PaniniFS
+  standards_version: "2025.1"
+  
+language: fr
+style:
+  tone: concise
+  code_comments: fr
+  explains_when: minimal
+
+commits:
+  convention: conventional_commits
+  scope_examples: [core, api, ui, docs, test, build, ci, deps]
+  
+quality_gates:
+  build: required
+  lint: required
+  type_check: recommended
+  tests: required
+  coverage_min: 70
+  
+review:
+  min_reviewers: 1
+  require_approval: true
+  checklist:
+    - code lisible et diff raisonnable
+    - tests passent
+    - documentation à jour si API change
+    - commit messages suivent conventional commits
+    
+automation:
+  auto_merge: false
+  auto_assign_reviewers: true
+  auto_label: true
